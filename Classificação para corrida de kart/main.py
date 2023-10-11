@@ -1,35 +1,39 @@
-def minimo(lista):
-    minimo_atual = lista[0]  # Começa com o primeiro elemento da lista
-    for item in lista[1:]:  # Percorre o restante da lista
-        if item < minimo_atual:
-            minimo_atual = item  # Encontra um novo mínimo
-    return minimo_atual
-qtd_pilotos = int(input())
-qtd_voltas = int(input())
-qtd_voltas_invalidas = int(input())
-participantes = [[], []]
+# entrada do usuário
+entrada = input()
+# dividindo a entrada em uma lista de strings
+numeros_str = entrada.split()
+# convertendo a lista de stings para uma lista de inteiros
+numeros = [int(num) for num in numeros_str]
+qtd_pilotos = numeros[0]
+qtd_voltas = numeros[1]
+qtd_voltas_invalidas = numeros[2]
+participantes = []
 voltas = []
 nomes = 1
 while nomes <= qtd_pilotos:
     participantes.append(input())
     nomes += 1
-volta = 1
-nomes = 1
-while volta <= qtd_voltas:
+volta = 0
+while volta < qtd_voltas:
     voltas.append(str(input()))
-    while nomes <= qtd_pilotos:
-        if str(voltas[volta-1][0] + voltas[volta-1][1] + voltas[volta-1][2]) == str(participantes[volta-1][0] +
-                                                                                    participantes[volta-1][1].lower() +
-                                                                                    participantes[volta-1][2].lower()):
-            participantes[volta-1].append(" " + voltas[volta-1])
-        nomes += 1
     volta += 1
 voltas.pop(qtd_voltas_invalidas)
+nomes = 0
+volta = 0
+while volta < qtd_voltas - qtd_voltas_invalidas:
+    while nomes < len(participantes):
+        print(participantes[nomes])
+        '''if participantes[nomes][-4] != '.' and participantes[nomes][0] == voltas[volta][0]:'''
+        participantes[nomes] += voltas[volta][3:]
+        print(participantes[nomes])
+        nomes += 1
+    print(voltas[volta])
+    volta += 1
 nomes = 1
 primeiro_lugar = participantes[0]
 while nomes <= qtd_pilotos:
     nomes += 1
 saida = 1
 while saida <= qtd_pilotos:
-    print(str(saida) + ' ' + participantes[saida-1])
+    print(str(saida) + ' ' + participantes[saida - 1])
     saida += 1
