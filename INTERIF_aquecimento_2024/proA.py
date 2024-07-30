@@ -19,6 +19,6 @@ while(True):
         elif(caminho[1] == destinoAtual):
             passou.append(caminho)
             destinoAtual.append(caminho[0])
-    i+=1
+    i += 1
 print(passou)
 print(f"Percurso:")
