@@ -5,7 +5,6 @@ def verificar_simetria(array):
             return False
     return True
 def substituir_valores(array, comeco):
-    if comeco != len(array) - 1:
         array[comeco] = array[comeco] + array[comeco + 1]
         del array[comeco+1]
 N = input()
@@ -16,7 +15,7 @@ for i in range(len(Numeros)):
     print(i)
     Mudancas.append(0)
     j = i
-    while (not verificar_simetria(Numeros)) or len(Numeros) > j:
+    while (not verificar_simetria(Numeros)) or int(5/2) > j:
         Mudancas[i+1] += 1
         substituir_valores(Numeros, j)
         print(Numeros)
