@@ -1,12 +1,16 @@
 def verificar_simetria(array):
     n = len(array)
-    for i in range(n // 2):
-        if array[i] != array[n - i - 1]:
+    for num in range(n // 2):
+        if array[num] != array[n - num - 1]:
             return False
     return True
+
+
 def substituir_valores(array, comeco):
-        array[comeco] = array[comeco] + array[comeco + 1]
-        del array[comeco+1]
+    array[comeco] = array[comeco] + array[comeco + 1]
+    del array[comeco+1]
+
+
 N = input()
 linha = input().split()
 Numeros = [int(num) for num in linha]
