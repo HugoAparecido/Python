@@ -1,3 +1,29 @@
+def pegar_vizinho_nao_nulo_minimo(arr, pos):
+  """
+  Encontra o menor vizinho não nulo em ambos os lados da posição dada em `pos` no array `arr`.
+    
+  Args:
+  arr (list): O array de onde buscar os vizinhos.
+  pos (int): A posição atual no array.
+    
+  Returns:
+  int ou None: O menor valor do vizinho não nulo ou `None` se não houver tal vizinho.
+  """
+  menor_vizinho = None
+    
+  # Verifica o vizinho à esquerda
+  for i in range(pos - 1, -1, -1):
+      if arr[i] is not None:
+        if menor_vizinho is None or arr[i] < menor_vizinho:
+                menor_vizinho = arr[i]
+
+  # Verifica o vizinho à direita
+  for i in range(pos + 1, len(arr)):
+    if arr[i] is not None:
+      if menor_vizinho is None or arr[i] < menor_vizinho:
+        menor_vizinho = arr[i]
+
+    return menor_vizinho
 linha = input().split()
 matriz = []
 controlador = int(linha[0])
@@ -6,27 +32,4 @@ while controlador:
   controlador -= 1
 print(matriz)
 print(matriz[0])
-for i in matriz:
-  # for j in matriz[i]:
-    print(matriz[i])
-    # poder = []
-    # inverter = +1
-    # local = i
-    # while len(matriz) > 1:
-    #   if(local < 0):
-    #     local = 0
-    #     inverter = -1
-    #   if(local > len(matriz) + 2):
-    #     local = len(matriz) - 1
-    #     local = 1
-    #   if(matriz[0][local+inverter] < matriz[0][local]):
-    #     print(matriz[0][local] + matriz[0][local + inverter])
-    #     del matriz[0][i + inverter]
-    #     poder.append(matriz[0][0])
-    #     print(poder)
-    #   elif(matriz[0][local - inverter] < matriz[0][local]):
-    #     print(matriz[0][local] + matriz[0][local - inverter])
-    #     del matriz[0][i + inverter]
-    #     poder.append(matriz[0][0])
-    #     print(poder)
-    # print("".join(poder))
+# for i in matriz:
